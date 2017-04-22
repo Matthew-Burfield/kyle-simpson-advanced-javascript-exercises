@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>8.html</title>
+</head>
+<body>
+<h1>8.html</h1>
+
+<p id='hello'></p>
+
+<script src='/socket.io/socket.io.js'></script>
+<script>
+var socket = io.connect('/')
+//listen to connected event
+socket.on('connected', function () {
+  console.log('connected')
+})
+//listen to disconnected event
+socket.on('disconnect', function () {
+  console.log('disconnected')
+})
+
+socket.on('hello', function (randNum) {
+  document.getElementById('hello').innerHTML = randNum
+})
+</script>
+
+</body>
+</html>
